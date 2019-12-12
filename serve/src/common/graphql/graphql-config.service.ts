@@ -5,7 +5,8 @@ import { GqlOptionsFactory, GqlModuleOptions } from '@nestjs/graphql';
 export class GraphqlConfigService implements GqlOptionsFactory {
     createGqlOptions(): GqlModuleOptions {
         return {
-            typePaths: [],
+            typePaths: ['../../app/**/*.graphql'],
+            autoSchemaFile: 'schema.gql',
         };
     }
 }

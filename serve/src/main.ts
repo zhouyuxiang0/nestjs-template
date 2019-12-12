@@ -4,15 +4,6 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  if (process.env.NODE_ENV === 'development') {
-    const options = new DocumentBuilder()
-      .setTitle('Swagger')
-      .setDescription('...')
-      .setVersion('1.0')
-      .build();
-    const document = SwaggerModule.createDocument(app, options);
-    SwaggerModule.setup('api', app, document);
-  }
-  await app.listen(3001);
+  await app.listen(3000);
 }
 bootstrap();

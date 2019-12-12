@@ -16,9 +16,6 @@ const configProviders = buildConfigProviders();
         TypeOrmModule.forRootAsync({
             useClass: TypeOrmConfigService,
         }),
-        GraphQLModule.forRootAsync({
-            useClass: GraphqlConfigService,
-        }),
     ],
     exports: [...configList],
     providers: [...configProviders],

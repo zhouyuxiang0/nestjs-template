@@ -17,7 +17,11 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "mg:create": "node -r dotenv/config -r ts-node/register node_modules/.bin/typeorm migration:create --config ormconfig.js",
+    "mg:run": "node -r dotenv/config -r ts-node/register node_modules/.bin/typeorm migration:run --config ormconfig.js",
+    "mg:revert": "node -r dotenv/config -r ts-node/register node_modules/.bin/typeorm migration:revert --config ormconfig.js",
+    "seed:env": "node -r dotenv/config -r ts-node/register node_modules/typeorm-seeding/dist/cli.js seed --config ormconfig.js --class"
   },
   "dependencies": {
     "@nestjs/common": "^6.7.2",
@@ -34,12 +38,13 @@
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6",
     "joi": "^14.3.1",
-    "mysql": "^2.17.1",
+    "mysql2": "^2.0.2",
     "passport": "^0.4.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.3",
     "swagger-ui-express": "^4.1.2",
+    "type-graphql": "^0.17.5",
     "typeorm": "^0.2.21"
   },
   "devDependencies": {

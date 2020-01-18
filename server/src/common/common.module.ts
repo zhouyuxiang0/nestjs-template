@@ -7,6 +7,7 @@ import { configList } from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AllinpayConfig } from './config/allinpay.config';
+import { MongoConfigService } from './typeorm';
 
 const configProviders = buildConfigProviders();
 
@@ -14,11 +15,14 @@ const configProviders = buildConfigProviders();
 @Module({
     imports: [
         TypeOrmModule.forRootAsync({
-            useClass: TypeOrmConfigService,
-        }),
-        GraphQLModule.forRootAsync({
-            useClass: GraphqlConfigService,
-        }),
+            useClass: MongoConfigService
+        })
+        // TypeOrmModule.forRootAsync({
+        //     useClass: TypeOrmConfigService,
+        // }),
+        // GraphQLModule.forRootAsync({
+        //     useClass: GraphqlConfigService,
+        // }),
     ],
     exports: [...configList],
     providers: [...configProviders],

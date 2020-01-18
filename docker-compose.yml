@@ -13,7 +13,7 @@ services:
         - application
         - database
     command: yarn start
-    container_name: hzlh-new-oa-backend
+    container_name: allinpay
 networks:
   database:
     external: true

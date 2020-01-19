@@ -9,6 +9,8 @@ services:
     expose:
       - "3000"
       - "50050"
+    ports: 
+      - 3000:3000
     networks:
         - application
         - database

@@ -8,12 +8,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AllinpayConfig } from './config/allinpay.config';
 import { MongoConfigService } from './typeorm';
+import { MongooseModule } from '@nestjs/mongoose'
 
 const configProviders = buildConfigProviders();
 
 @Global()
 @Module({
     imports: [
+        // MongooseModule.forRoot('mongodb://mongo/test'),
         TypeOrmModule.forRootAsync({
             useClass: MongoConfigService
         })
